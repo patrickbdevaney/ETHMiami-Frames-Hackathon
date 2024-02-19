@@ -41,9 +41,34 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
+  const uploadImage = () => {
+    const imgInput = document.getElementById('imgInput') as HTMLInputElement;
+    const file = imgInput.files?.[0];
+    if (file) {
+      const formData = new FormData();
+      formData.append('image', file);
+      fetch('/api/upload', {
+        method: 'POST',
+        body: formData,
+      })
+        .then((response) => response.json())
+        .then((result) => {
+          console.log('Success:', result);
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+    }
+  };
+
   return (
     <>
-      <h1>zizzamia.xyz</h1>
+      <h2>Image Upload and Share</h2>
+
+      <form id="uploadForm">
+        <input type="file" id="imgInput" name="imgInput" />
+        <input type="button" value="Upload Image" onClick={uploadImage} />
+      </form>
     </>
   );
 }
