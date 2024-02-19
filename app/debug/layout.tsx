@@ -1,17 +1,15 @@
 import type { Metadata } from "next";
-import "./globals.css";
 
 export const metadata: Metadata = {
-  // without a title, warpcast won't validate your frame
-  title: "frames.js starter",
-  description: "...",
+  title: "Frame Debugger",
+  description: "Help identify and fix issues with your frames",
 };
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
-}) {
+}): JSX.Element {
   return (
     <html lang="en">
       <body>{children}</body>
