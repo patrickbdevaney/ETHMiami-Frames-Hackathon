@@ -1,5 +1,5 @@
 {
-  "name": "ETHMiami-Frames-Hackathon",
+  "name": "ethmiami-frames-hackathon",
   "version": "0.5.1",
   "scripts": {
     "build": "rm -rf .next && next build",
